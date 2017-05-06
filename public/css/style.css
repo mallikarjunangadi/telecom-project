@@ -1,0 +1,9 @@
+body { padding-top:30px; }
+.container {
+    width:100%;
+}
+
+.loginDiv {
+    width:400px;
+    float:right;
+}

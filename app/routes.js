@@ -1,36 +1,42 @@
- // app/routes.js
+module.exports = function(app) {
 
-// grab the nerd model we just created
-var Nerd = require('./models/nerd');
+	// server routes ===========================================================
+	// handle things like api calls
+	// authentication routes
 
-    module.exports = function(app) {
+	// frontend routes =========================================================
+	// route to handle all angular requests
+	app.get('*', function(req, res) {
+		res.sendfile('./public/index.html');
+	});
+	
+	app.post('/mdealer', function(req, res) {
+		res.sendfile('./public/views/masterDealer.html');
+	});
 
-        // server routes ===========================================================
-        // handle things like api calls
-        // authentication routes
+	app.post('/dealer', function(req, res) {
+		res.sendfile('./public/views/dealer.html');
+	});
 
-        // sample api route
-        app.get('/api/nerds', function(req, res) {
-            // use mongoose to get all nerds in the database
-            Nerd.find(function(err, nerds) {
+	app.post('/retailer', function(req, res) {
+		res.sendfile('./public/views/retailer.html');
+	});
 
-                // if there is an error retrieving, send the error. 
-                                // nothing after res.send(err) will execute
-                if (err)
-                    res.send(err);
+	app.post('/loginValidate', function(req, res) {
+       console.log(req.body);
 
-                res.json(nerds); // return all nerds in JSON format
-            });
-        });
+		var username = req.body.uname;
+        var password = req.body.pwd;
 
-        // route to handle creating goes here (app.post)
-        // route to handle delete goes here (app.delete)
+        if(username == "3004" && password == "88848") {
+           res.sendfile('./public/views/masterDealer.html');
+		} else if(username == "2005" && password == "88848") {
+		   res.sendfile('./public/views/dealer.html');	
+		} else if(username == "100637" && password == "88848") {
+           res.sendfile('./public/views/retailer.html');
+		} else {
+			res.send("Error Page not found");
+		}
+  });
 
-        // frontend routes =========================================================
-        // route to handle all angular requests
-        app.get('*', function(req, res) {
-            res.sendfile('./public/views/index.html'); // load our public/index.html file
-        });
-
-    };
-
+};
