@@ -2,6 +2,8 @@
 <html>
 <head>
   		<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+      <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+      <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
     
@@ -26,7 +28,15 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Retailer</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailer<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><a href="#">Add New Retailer</a></li>
+           <li><a href="#">List of Retailer</a></li>
+           <li><a href="#">Retailer Topup Report</a></li>
+           <li><a href="#">Retailer Recharge Report</a></li>
+          </ul>
+        </li>
         <li><a href="#">Report</a></li>
         <li><a href="#">Others</a></li>
         <li><a href="">Logout</a></li>
