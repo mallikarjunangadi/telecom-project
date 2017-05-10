@@ -49,7 +49,6 @@ module.exports = function(app) {
         var password = req.body.pwd;
 
         if(username == "3004" && password == "88848") {
-		 
            res.sendfile('./public/views/masterDealer.html');
 		} else if(username == "2005" && password == "88848") {
 		   res.sendfile('./public/views/dealer.html');	

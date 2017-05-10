@@ -11,7 +11,127 @@ connection.connect(function(err) {
     console.error('error connecting: ' + err.stack);
     return;
   }
+
   console.log('connected as id ' + connection.threadId);
+
+    var sqlMasterTable = "CREATE TABLE IF NOT EXISTS MasterDealer (         " +
+      "  Id INT UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+      "  Name  VARCHAR(50) NOT NULL DEFAULT '',                " +
+      "  Mobile VARCHAR(15)   NOT NULL DEFAULT '',             " +
+      "  State VARCHAR(25)  NOT NULL DEFAULT '',               " +
+      "  City VARCHAR(25)  NOT NULL DEFAULT '',                " +
+      "  EmailId VARCHAR(50) NOT NULL DEFAULT '',              " +
+	    "	 Balance DECIMAL(10,3) DEFAULT Null,                   " +
+	    "	 LoginStatus VARCHAR(10) NOT NULL DEFAULT '',          " +
+	    "	 Address VARCHAR(255) NOT NULL DEFAULT '',             " +
+	    "	 RetailerType VARCHAR(25) NOT NULL DEFAULT '',         " +
+	    "	 PanNo VARCHAR(30) NOT NULL DEFAULT '',                " +
+	    "	 PinCode VARCHAR(10) NOT NULL DEFAULT '',              " +
+	    "	 LandLine VARCHAR(15) NOT NULL DEFAULT '',             " +
+	    "	 ContactPerson VARCHAR(50) NOT NULL DEFAULT '',        " +
+	    "	 Scheme VARCHAR(50) NOT NULL DEFAULT ''                " +
+      " );                                                     ";
+      
+  connection.query(sqlMasterTable, function (err, result) {
+    if (err) {console.log('unable to create master table')};
+    console.log("Master Table created");
+  });
+
+  var sqlDealerTable = "CREATE TABLE IF NOT EXISTS Dealer (         " +
+      "  Id INT UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+      "  Name  VARCHAR(50) NOT NULL DEFAULT '',                " +
+      "  Mobile VARCHAR(15)   NOT NULL DEFAULT '',             " +
+      "  State VARCHAR(25)  NOT NULL DEFAULT '',               " +
+      "  City VARCHAR(25)  NOT NULL DEFAULT '',                " +
+      "  EmailId VARCHAR(50) NOT NULL DEFAULT '',              " +
+	  "	 Balance DECIMAL(10,3) DEFAULT Null,                   " +
+	  "	 LoginStatus VARCHAR(10) NOT NULL DEFAULT '',          " +
+	  "	 Address VARCHAR(255) NOT NULL DEFAULT '',             " +
+	  "	 RetailerType VARCHAR(25) NOT NULL DEFAULT '',         " +
+	  "	 PanNo VARCHAR(30) NOT NULL DEFAULT '',                " +
+	  "	 PinCode VARCHAR(10) NOT NULL DEFAULT '',              " +
+	  "	 LandLine VARCHAR(15) NOT NULL DEFAULT '',             " +
+	  "	 ContactPerson VARCHAR(50) NOT NULL DEFAULT '',        " +
+	  "	 Scheme VARCHAR(50) NOT NULL DEFAULT ''                " +
+	  "  ParentMasterDealerId INT UNSIGNED  NOT NULL,          " +
+	  "	 FOREIGN KEY fk_mid(ParentMasterDealerId) REFERENCES MasterDealer(Id) ON UPDATE CASCADE ON DELETE RESTRICT        " +
+    " );                                                     ";
+      
+  connection.query(sqlDealerTable, function (err, result) {
+    if (err) {console.log('unable to create dealer table')};
+    console.log("Dealer Table created");
+  });
+
+  var sqlRetailerTable = "CREATE TABLE IF NOT EXISTS Retailer (         " +
+      "  Id INT UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+      "  Name  VARCHAR(50) NOT NULL DEFAULT '',                " +
+      "  Mobile VARCHAR(15)   NOT NULL DEFAULT '',             " +
+      "  State VARCHAR(25)  NOT NULL DEFAULT '',               " +
+      "  City VARCHAR(25)  NOT NULL DEFAULT '',                " +
+      "  EmailId VARCHAR(50) NOT NULL DEFAULT '',              " +
+	    "	 Balance DECIMAL(10,3) DEFAULT Null,                   " +
+	    "	 LoginStatus VARCHAR(10) NOT NULL DEFAULT '',          " +
+	    "	 Address VARCHAR(255) NOT NULL DEFAULT '',             " +
+	    "	 RetailerType VARCHAR(25) NOT NULL DEFAULT '',         " +
+	  "	 PanNo VARCHAR(30) NOT NULL DEFAULT '',                " +
+	  "	 PinCode VARCHAR(10) NOT NULL DEFAULT '',              " +
+	  "	 LandLine VARCHAR(15) NOT NULL DEFAULT '',             " +
+	  "	 ContactPerson VARCHAR(50) NOT NULL DEFAULT '',        " +
+	  "	 Scheme VARCHAR(50) NOT NULL DEFAULT ''                " +
+	  "  ParentDealerId INT UNSIGNED  NOT NULL,                " +
+	  "	 ParentMasterDealerId INT UNSIGNED  NOT NULL,          " +
+	  "	 FOREIGN KEY fk_pdid(ParentDealerId) REFERENCES Dealer(Id) ON UPDATE CASCADE ON DELETE RESTRICT,            " +
+	  "	 FOREIGN KEY fk_pmid(ParentMasterDealerId) REFERENCES MasterDealer(Id) ON UPDATE CASCADE ON DELETE RESTRICT " +
+    " );                                                     ";
+      
+  connection.query(sqlRetailerTable, function (err, result) {
+    if (err) {console.log('unable to create retailer table')};
+    console.log("Retailer Table created");
+  });
+
+
+   var sqlRetailerTypeTable = " CREATE TABLE IF NOT EXISTS RetailerType (  " +
+            "  Id INT UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,  " +
+    	      "  Name VARCHAR(50) NOT NULL DEFAULT ''                   " +
+            " );  		                                                ";
+			
+	connection.query(sqlRetailerTypeTable, function (err, result) {
+      if (err) {console.log('unable to create retailerTypeTable table')};
+    console.log("Table created");
+  });		
+  
+
+  var sqlTransactionTable = " CREATE TABLE IF NOT EXISTS Transaction (  " +
+    "     PaymentId INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,    " +
+    "	    UserId INT UNSIGNED NOT NULL,                                  " +
+  	"	    PaymentDate DATE NOT NULL,                                     " +
+    "     PaymentTo INT UNSIGNED NOT NULL,                               " +  
+    "     UserType VARCHAR(25) NOT NULL DEFAULT '',                      " + 
+    "     TransactionType VARCHAR(25) NOT NULL DEFAULT '',               " +
+    "     PaymentType VARCHAR(25) NOT NULL DEFAULT '',                   " +
+    "     Description VARCHAR(255) NOT NULL DEFAULT '',                  " +
+    "     Remark VARCHAR(25) NOT NULL DEFAULT '',                        " +
+    "    CreditAmount DECIMAL(10,3),                                    " +
+    "     DebitAmount DECIMAL(10,3),                                     " +
+    "     Balance DECIMAL(10,3)     		                                " +  
+    "    );  		 		" ;
+  
+    connection.query(sqlTransactionTable, function (err, result) {
+      if (err) {console.log('unable to create Transaction table')};
+      console.log("Table created");
+    });		
+
+    var sqlSchemeTable = "	CREATE TABLE IF NOT EXISTS Scheme (	 " +
+    "   Id INT UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,    " +
+    "   Name  VARCHAR(50) NOT NULL DEFAULT '',                   " +
+	  "   Type VARCHAR(25) NOT NULL DEFAULT ''                     " +
+    " );	                                                     ";
+
+  connection.query(sqlSchemeTable, function (err, result) {
+    if (err) {console.log('unable to create Scheme  table')};
+    console.log("Table created");
+  });		
+    
 });  
 
 

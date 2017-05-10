@@ -1,9 +1,6 @@
 <!doctype html>
 <html>
 <head>
-  		<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-      <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
-      <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container" style="width:100%;">
@@ -26,101 +23,56 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Recharge</a></li>
-        <li><a href="#">Bus Booking</a></li>
-        <li><a href="#">Bill Payment</a></li>
-        <li><a href="#">DTH Booking</a></li>
-        <li><a href="#">Report</a></li>
-        <li><a href="#">Fund Request</a></li>
-        <li><a href="#">Others</a></li>
-        <li><a href="">Logout</a></li>
+        <li><a href="#" ng-click="navClick('rechargeR')">Recharge</a></li>
+        <li><a href="#" ng-click="navClick('busBookingR')">Bus Booking</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bill Payment<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><a href="#" ng-click="navClick('postPaidRechargeR')">Postpaid Recharge</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">DTH Booking<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><a href="#" ng-click="navClick('dthBookingR')">DTH Booking</a></li>
+           <li><a href="#" ng-click="navClick('dthBookingReportR')">DTH Booking Report</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><a href="#" ng-click="navClick('allReportsR')">All Reports</a></li>
+           <li><a href="#" ng-click="navClick('retailerAccountReportR')">Account Reports</a></li>
+           <li><a href="#" ng-click="navClick('topUpHistoryR')">Topup History</a></li>
+           <li><a href="#" ng-click="navClick('refundReportR')">Refund Report</a></li>
+           <li><a href="#" ng-click="navClick('checkStatusMdDR')">Check Status</a></li>
+           <li><a href="#" ng-click="navClick('creditRechargeReportR')">Credit Recharge Report</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Fund Request<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><a href="#" ng-click="navClick('fundRequestR')">Send Fund Request</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Others<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><a href="#" ng-click="navClick('complainR')">Complain</a></li>
+           <li><a href="#">SMS Format</a></li>
+           <li><a href="#" ng-click="navClick('changeProfileR')">Change Profile</a></li>
+           <li><a href="#" ng-click="navClick('changePasswordMdDR')">Change Password</a></li>
+           <li><a href="#" ng-click="navClick('bankDetailsMdDR')">Bank Account Detail</a></li>
+          </ul>
+        </li>
+        <li><a href="/">Logout</a></li>
       </ul>
     </div>
 </nav>
 
-<div style="width:50%;margin:auto;">
-<form class="form-horizontal" action="">
-   <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="radio">
-          <label><input type="radio" name="mobile" checked>Mobile </label>
-          <label><input type="radio" name="dth">DTH </label>
-          <label><input type="radio" name="postpaid">Postpaid </label>
-          <label><input type="radio" name="utility">Utility </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Company:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="text" placeholder="Enter company name" name="email">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Mobile No:</label>
-      <div class="col-sm-10">          
-        <input type="tel" class="form-control" id="mobileno" placeholder="Enter mobile number" name="mobileno">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Amount:</label>
-      <div class="col-sm-10">          
-        <input type="number" class="form-control" id="amount" placeholder="Enter amount" name="amount">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Customer Name:</label>
-      <div class="col-sm-10">          
-        <input type="text" class="form-control" id="cname" placeholder="Enter customer name" name="cname">
-      </div>
-    </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label><input type="checkbox" name="credit"> Credit</label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Submit</button>
-      </div>
-    </div>
-  </form>
- </div> 
-
- <div class="well well-sm">Today Last Transactions</div>
-
- <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Company</th>
-        <th>Mobile No</th>
-        <th>Amount</th>
-        <th>By</th>
-        <th>Status</th>
-        <th>Date Time</th>
-        <th>Transaction</th>
-        <th>Complain</th>
-        <th>Print</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>JIO</td>
-        <td>9876654321</td>
-        <td>200</td>
-        <td>GPRS</td>
-        <td>Success</td>
-        <td>20/02/92 02:03:01</td>
-        <td>Debit</td>
-        <td>---</td>
-        <td>---</td>
-      </tr>
-    </tbody>
-  </table>
+  <span ng-if="selTempleteUrl != ''">
+    <div data-ng-include="selTempleteUrl" style="width:100%;height:100px;"></div>
+  </span> 
 </div>
 </body>
 </html>  

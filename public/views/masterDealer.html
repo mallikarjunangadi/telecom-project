@@ -1,11 +1,9 @@
 <!doctype html>
 <html>
 <head>
-  		<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-      <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
-      <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  		
 </head>
-<body ng-controller="mDealerMainCtrl">
+<body>
 <div class="container">
 
 <img src="sc2.jpg" style="width:130px;height:100px;margin:4px;"></img>
@@ -30,68 +28,39 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dealer<span class="caret"></span></a>
           <ul class="dropdown-menu">
-           <li><a href="#">Add New Dealer</a></li>
-           <li><a href="#">List of Dealer</a></li>
+           <li><a href="#" ng-click="navClick('addNewDealerMd')">Add New Dealer</a></li>
+           <li><a href="#" ng-click="navClick('listOfDealerMd')">List of Dealer</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailer<span class="caret"></span></a>
           <ul class="dropdown-menu">
-           <li><a href="#">Add New Retailer</a></li>
-           <li><a href="#">List of Retailers</a></li>
+           <li><a href="#" ng-click="navClick('addNewRetailerMdD')">Add New Retailer</a></li>
+           <li><a href="#" ng-click="navClick('listOfRetailerMd')">List of Retailers</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report<span class="caret"></span></a>
           <ul class="dropdown-menu">
-           <li><a href="#">Account Reports</a></li>
-           <li><a href="#">Credit Reports</a></li>
-           <li><a href="#">Check Status</a></li>
+           <li><a href="#" ng-click="navClick('accountReportMdD')">Account Reports</a></li>
+           <li><a href="#" ng-click="navClick('creditReportMdD')">Credit Reports</a></li>
+           <li><a href="#" ng-click="navClick('checkStatusMdDR')">Check Status</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Complain & Account Setting<span class="caret"></span></a>
           <ul class="dropdown-menu">
-           <li><a href="#">Change Password</a></li>
-           <li><a href="#">Bank Account Detail</a></li>
+           <li><a href="#" ng-click="navClick('changePasswordMdDR')">Change Password</a></li>
+           <li><a href="#" ng-click="navClick('bankDetailsMdDR')">Bank Account Detail</a></li>
           </ul>
         </li>
-        <li><a href="">Logout</a></li>
+        <li><a href="/">Logout</a></li>
       </ul>
     </div>
 </nav>
-<div class="well well-sm">List of Distributors</div>
-
-<table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>D No</th>
-        <th>D Name</th>
-        <th>Mobile</th>
-        <th>State</th>
-        <th>City</th>
-        <th>Email ID</th>
-        <th>Balance</th>
-        <th>Login</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>56779</td>
-        <td>John</td>
-        <td>9876654321</td>
-        <td>Karnataka</td>
-        <td>Bangalore</td>
-        <td>john@example.com</td>
-        <td>100</td>
-        <td>Active</td>
-        <td>hbhscnjs</td>
-      </tr>
-    </tbody>
-  </table>
- </div> 
+  <span ng-if="selTempleteUrl != ''">
+    <div data-ng-include="selTempleteUrl" style="width:100%;height:100px;"></div>
+  </span> 
+  </div>
 </body>
 </html>  

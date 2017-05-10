@@ -1,7 +1,15 @@
 angular.module('dealerCtrl', [])
 
-.controller('NerdController', function($scope) {
+.controller('dealerMainCtrl', function($scope) {
+	console.log('entered dealerMainCtrl');
 
-	$scope.tagline = 'Nothing beats a pocket protector!';
-
+    $scope.selTempleteUrl = "views/listOfRetailerD.html";
+   
+	$scope.navClick = function(url) {
+	   console.log('navClick func entered..');
+	   url = "views/"+url+".html";
+	   $scope.selTempleteUrl = url;
+	}
+	// $scope.navClick('listOfDealer');
+	
 });
