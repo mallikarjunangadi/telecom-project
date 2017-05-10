@@ -10,7 +10,7 @@ module.exports = function(app) {
 	app.get('*', function(req, res) {
 		res.sendfile('./public/index.html');
 	});
-	
+
 	app.post('/addMasterDealer', DbService.AddMasterDealer);
 	app.post('/deleteMasterDealer', DbService.DeleteMasterDealerbyId);
 	app.post('/editMasterDealer', DbService.EditMasterDealerbyId);
