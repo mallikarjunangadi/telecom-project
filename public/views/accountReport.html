@@ -2,35 +2,38 @@
 <html>
 <head>
 <title>Account Report </title>
+<link rel="stylesheet" href="/public/css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container-fluid">
-<div class="well">
-      Account Ledger Report
+<div class="well well-sm">
+     <h3 id="acc">Credit Report</h3>
     </div>
-<div>
+<div >
   <div class="row">
          <div  class="col-xs-3">
        <div class="form-group">
-      <label for="sel1" >From Date:</label><input type="date" name="bday"> 
+      <label for="sel1" >From Date:</label><input type="date" class="form-control" name="bday"> 
       </div >
       </div>
        <div  class="col-xs-3">
   <div class="form-group">    
-  <label for="sel1" >To Date:</label><input type="date" name="bday">
+  <label for="sel1" >To Date:</label><input type="date" class="form-control" name="bday">
  </div >
+
  </div>
-             
- <button type="button" class="btn btn-success" >Search</button>
-  <button type="button" class="btn  btn-danger" >Export</button>
+            
+ <button type="button" class="btn  btn-success btn-lg" >Search</button>
+
+  <button type="button" class="btn  btn-danger btn-lg" >Export</button>
 </div>
 <div style="padding:2vh">
 <table class="table table-bordered">
     <thead>
-      <tr style="background:orange">
+      <tr style="background:orange;padding:2vh;">
         <th>Payment Date</th>
         <th>Payment Id</th>
         <th>Payment To</th>
