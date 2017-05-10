@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<title>Retailer Recharge</title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div >
+  <div class="container-fluid">
+<div class="well " id="headng" style="margin-top:2vh;">
+      Account Ledger Report
+</div>
+
+<div class="row">
+   <div  class="col-xs-2">
+  <div class="form-group"> 
+    <label for="sel1" >Select User:</label>
+  <select class="form-control "  id="sel1" style="height:5vh;">
+                           <option>Live</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                        </select>
+    </div >
+    </div>     
+         <div  class="col-xs-2">
+       <div class="form-group">
+      <label for="sel1" >From Date:</label><input type="date" name="bday"> 
+      </div >
+      </div>
+       <div  class="col-xs-2">
+  <div class="form-group">    
+  <label for="sel1" >To Date:</label><input type="date" name="bday">
+ </div >
+ 
+ </div>
+ <div style="margin-top:3vh">
+ <button type="button" class="btn btn-success" >Search</button>
+  <button type="button" class="btn  btn-danger" >Export</button>
+  </div>
+ </div>
+           
+ 
+<div style="padding:2vh">
+<table class="table table-bordered">
+    <thead>
+      <tr  style="background:orange">
+        <th>Sr No</th>
+        <th>Recharge Id</th>
+        <th>Recharge Date</th>
+        <th>Agent Name</th>
+        <th>Agent Id</th>
+        <th>Parent Name</th>
+        <th>Company Name</th>
+        <th>Mobile No</th>
+        <th>Amount</th>
+        <th>Dr Amount</th>
+        <th>Recharge By</th>
+        <th>Status</th>
+      </tr>
+    </thead> <tbody>
+      <tr>
+        <td>1</td>
+        <td>8933692</td>
+        <td>2017-05-08 05:56:23 PM</td>
+        <td>narasimha</td>
+        <td>103303</td>
+        <td>Bharath S</td>
+        <td>MTS</td>
+        <td>8453405297</td>
+        <td>30</td>
+        <td>30</td>
+        <td>GPRS</td>
+        <td>Successs</td>
+      </tr>
+    </tbody>
+    
+  </table>
+</div>           
+            
+</div>
+</body>
+</html>

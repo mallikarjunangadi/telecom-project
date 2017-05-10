@@ -21,6 +21,9 @@ module.exports = function(app) {
 	app.post('/retailer', function(req, res) {
 		res.sendfile('./public/views/retailer.html');
 	});
+	app.post('/retailerTopup',function(req,res){
+		res.sendfile('./public/views/retailerTopup.html');
+	})
 
 	app.post('/loginValidate', function(req, res) {
        console.log(req.body);

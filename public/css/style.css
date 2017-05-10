@@ -7,3 +7,9 @@ body { padding-top:30px; }
     width:400px;
     float:right;
 }
+
+#headng{
+text-align:center;
+font-weight: bold;
+font-size:4vh;margin-top:2vh;
+}
