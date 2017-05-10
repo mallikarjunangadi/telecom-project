@@ -4,4 +4,10 @@ angular.module('masterDealerCtrl', [])
 
 	$scope.tagline = 'The square root of life is pi!';	
 
+})
+
+.controller('mDealerMainCtrl', function($scope) {
+   
+	console.log('entered mDealerMain Ctrl');
+
 });

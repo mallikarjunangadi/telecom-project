@@ -36,8 +36,11 @@ exports.AddMasterDealer = function (req, res) {
    connection.query(sql, function (err, result) {
      if (err) {
         console.log('unable to add masterDealer');
-     };
-     console.log("1 record inserted");
+        res.send({data:"failure"});
+     } else {
+        console.log("1 record inserted");
+        res.send({data:"success"});
+     }
    });
   }
 
@@ -49,8 +52,11 @@ exports.DeleteMasterDealerbyId = function (req, res) {
   connection.query(sql, function (err, result) {
     if (err) {
        console.log('unable to delete masterDealer');
+       res.send({data:"failure"});
+    } else {
+       console.log("Number of records deleted: " + result.affectedRows);
+       res.send({data:"success"}); 
     };
-    console.log("Number of records deleted: " + result.affectedRows);
   });
 }
 
@@ -74,8 +80,11 @@ exports.EditMasterDealerbyId = function (req, res) {
   connection.query(sql, function (err, result) {
     if (err) {
        console.log('unable to edit masterDealer');
+       res.send({data:"failure"}); 
+    } else {
+       console.log(result.affectedRows + " record(s) updated"); 
+       res.send({data:"success"}); 
     };
-    console.log(result.affectedRows + " record(s) updated");
   });
 }
 
@@ -84,8 +93,11 @@ exports.GetAllMasterDealers = function (req, res) {
   connection.query("SELECT * FROM MasterDealer", function (err, result) {
     if (err) {
        console.log('unable to get masterDealer');
+       res.send({data:"failure"});
+    } else {
+       console.log(result);
+       res.send({data:result});
     };
-    console.log(result);
   }); 
 }
 
@@ -112,8 +124,12 @@ exports.AddDealer = function (req, res) {
   connection.query(sql, function (err, result) {
     if (err) {
        console.log('unable to add Dealer');
+       res.send({data:"failure"});
+    } else {
+       console.log("1 record inserted");
+       res.send({data:"success"});
     };
-    console.log("1 record inserted");
+    
   });
 }
 
@@ -124,8 +140,11 @@ exports.DeleteDealerbyId = function (req, res) {
   connection.query(sql, function (err, result) {
     if (err) {
        console.log('unable to delete Dealer');
+       res.send({data:"failure"});
+    } else {
+       console.log("Number of records deleted: " + result.affectedRows);
+       res.send({data:"success"});
     };
-    console.log("Number of records deleted: " + result.affectedRows);
   });
 }
 
@@ -150,8 +169,11 @@ exports.EditDealerbyId = function (req, res) {
   connection.query(sql, function (err, result) {
     if (err) {
        console.log('unable to edit Dealer');
+       res.send({data:"failure"});
+    } else {
+       console.log(result.affectedRows + " record(s) updated");
+       res.send({data:"success"});
     };
-    console.log(result.affectedRows + " record(s) updated");
   });
 }
 
@@ -159,9 +181,12 @@ exports.GetDealersbyMasterId = function (req, res) {
   var masterid = req.body.masterid;
   connection.query("SELECT * FROM Dealer WHERE ParentMasterDealerId = " + masterid + "", function (err, result) {
     if (err) {
-       console.log('unable to get Dealers')
+       console.log('unable to get Dealers');
+       res.send({data:"failure"});
+    } else {
+       console.log(result);
+       res.send({data:result});
     };
-    console.log(result);
   }); 
 }
 
@@ -188,9 +213,12 @@ exports.AddRetailer = function (req, res) {
   var sql = "INSERT INTO Retailer (Name, Mobile, State, City, EmailID, Balance, LoginStatus, Address, RetailerType, PanNo, PinCode, Landline, ContactPerson, Scheme, ParentDealerId, ParentMasterDealerId) VALUES ( '" + name + "','" + mobile + "','" + state + "','" + city + "','" + email + "'," + balance + ",'" + loginStatus + "','" + address + "','" + retailerType + "','" + panNo + ",'" + pinCode + "','" + landline + "','" + contactPerson + "','" + scheme + "',"+ parentDealerId +"," + parentMasterDealerId + ")";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to add retailer')
+       console.log('unable to add retailer');
+       res.send({data:"failure"});
+    } else {
+       console.log("1 record inserted");
+       res.send({data:"success"}); 
     };
-    console.log("1 record inserted");
   });
 }
 
@@ -200,9 +228,12 @@ exports.DeleteRetailerbyId = function (req, res) {
   var sql = "DELETE FROM Retailer WHERE Id = " + id + "";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to delete retailer')
+       console.log('unable to delete retailer');
+       res.send({data:"failure"});
+    } else {
+       console.log("Number of records deleted: " + result.affectedRows);
+       res.send({data:"success"});
     };
-    console.log("Number of records deleted: " + result.affectedRows);
   });
 }
 
@@ -227,9 +258,12 @@ exports.EditRetailerById = function (req, res) {
   var sql = "UPDATE Retailer SET Name = '" + name + "', Mobile = '" + mobile + "', State = '" + state + "', City = '" + city + "', EmailId = '" + email + "',  Balance = " + balance + ", LoginStatus = '" + loginStatus + "', Address = '" + address + "', RetailerType = '" + retailerType + "', PanNo = '" + panNo + "', PinCode = '" + pinCode + "', Landline = '" + landline + "', ContactPerson = '" + contactPerson + "', Scheme = '" + scheme + "', parentDealerId = " + parentDealerId + ",  parentMasterDealerId = " + parentMasterDealerId + " WHERE Id = " + id + "";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to edit retailer')
+       console.log('unable to edit retailer');
+       res.send({data:"failure"});
+    } else {
+       console.log(result.affectedRows + " record(s) updated");
+       res.send({data:"success"});
     };
-    console.log(result.affectedRows + " record(s) updated");
   });
 }
 
@@ -238,9 +272,12 @@ exports.GetRetailerByDealerId = function (req, res) {
 
   connection.query("SELECT * FROM Retailer WHERE ParentDealerId = " + dealerid + "", function (err, result) {
     if (err) {
-       console.log('unable to get retailer by dealer id')
+       console.log('unable to get retailer by dealer id');
+       res.send({data:"failure"});
+    } else {
+       console.log(result);
+       res.send({data:result});
     };
-    console.log(result);
   }); 
 }
 
@@ -249,9 +286,12 @@ exports.GetRetailerByMasterId = function (req, res) {
 
   connection.query("SELECT * FROM Retailer WHERE ParentMasterDealerId = " + masterid + "", function (err, result) {
     if (err) {
-       console.log('unable to add retailer by master id')
+       console.log('unable to add retailer by master id');
+       res.send({data:"failure"});
+    } else {
+       console.log(result);
+       res.send({data:result});
     };
-    console.log(result);
   }); 
 }
 
@@ -260,9 +300,12 @@ exports.GetRetailerByMasterId = function (req, res) {
 exports.GetAllRetailerType = function (req, res) {
    connection.query("SELECT * FROM RetailerType", function (err, result) {
     if (err) {
-       console.log('unable to get retailerType')
+       console.log('unable to get retailerType');
+       res.send({data:"failure"});
+    } else {
+       console.log(result);
+       res.send({data:result});
     };
-    console.log(result);
   }); 
 }
 
@@ -272,9 +315,12 @@ exports.AddNewRetailerType = function (req, res) {
   var sql = "INSERT INTO RetailerType (Name) VALUES ( '" + name + "')";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to add retailerType')
+       console.log('unable to add retailerType');
+       res.send({data:"failure"});
+    } else {
+       console.log("1 record inserted");
+       res.send({data:"success"});
     };
-    console.log("1 record inserted");
   });
 }
 
@@ -284,9 +330,12 @@ exports.DeleteRetailerTypebyId = function (req, res) {
   var sql = "DELETE FROM RetailerType WHERE Id = " + id + "";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to delete retailerType')
+       console.log('unable to delete retailerType');
+       res.send({data:"failure"});
+    } else {
+       console.log("Number of records deleted: " + result.affectedRows);
+       res.send({data:"success"});
     };
-    console.log("Number of records deleted: " + result.affectedRows);
   });
 }
 
@@ -297,9 +346,12 @@ exports.EditRetailerTypebyId = function (req, res) {
   var sql = "UPDATE RetailerType SET Name = '" + name + "' WHERE Id = " + id + "";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to edit retailerType')
+       console.log('unable to edit retailerType');
+       res.send({data:"failure"});
+    } else {
+       console.log(result.affectedRows + " record(s) updated");
+       res.send({data:"success"});
     };
-    console.log(result.affectedRows + " record(s) updated");
   });
 }
 
@@ -312,9 +364,12 @@ exports.AddNewScheme = function (req, res) {
   var sql = "INSERT INTO Scheme (Name, Type) VALUES ( '" + name + "','" + type + "')";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to add scheme')
+       console.log('unable to add scheme');
+       res.send({data:"failure"});
+    } else {
+       console.log("1 record inserted");
+       res.send({data:"success"});
     };
-    console.log("1 record inserted");
   });
 }
 
@@ -324,9 +379,12 @@ exports.DeleteSchemebyId = function (req, res) {
   var sql = "DELETE FROM Scheme WHERE Id = " + id + "";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to delete scheme')
+       console.log('unable to delete scheme');
+       res.send({data:"failure"});
+    } else {
+       console.log("Number of records deleted: " + result.affectedRows);
+       res.send({data:"success"});
     };
-    console.log("Number of records deleted: " + result.affectedRows);
   });
 }
 
@@ -338,9 +396,12 @@ exports.EditSchemebyId = function (req, res) {
   var sql = "UPDATE Scheme SET Name = '" + name + "', Type = '" + type + "' WHERE Id = " + id + "";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to edit scheme')
+       console.log('unable to edit scheme');
+       res.send({data:"failure"});
+    } else {
+       console.log(result.affectedRows + " record(s) updated");
+       res.send({data:"success"});
     };
-    console.log(result.affectedRows + " record(s) updated");
   });
 }
 
@@ -349,9 +410,12 @@ exports.GetSchemebyType = function (req, res) {
 
    connection.query("SELECT * FROM Scheme WHERE Type = '" + type + "'", function (err, result) {
     if (err) {
-       console.log('unable to get scheme')
+       console.log('unable to get scheme');
+       res.send({data:"failure"});
+    } else {
+       console.log(result);
+       res.send({data:result});
     };
-    console.log(result);
   }); 
 }
 
@@ -374,9 +438,12 @@ exports.AddNewTransaction = function (req, res) {
   var sql = "INSERT INTO Transaction (PaymentId, UserId, PaymentDate, PaymentTo, UserType, TransactionType, PaymentType, Description, Remark, CreditAmount, DebitAmount, Balance) VALUES ( " + paymentId + "," + userId + "," + paymentDate + "," + paymentTo + ",'" + userType + "','" + transactionType + "','" + paymentType + "','" + description + "','" + remark + "'," + creditAmount + "," + debitAmount + "," + balance + ")";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to add Transaction')
+       console.log('unable to add Transaction');
+       res.send({data:"failure"});
+    } else {
+       console.log("1 record inserted");
+       res.send({data:"success"});
     };
-    console.log("1 record inserted");
   });
 }
 
@@ -385,9 +452,12 @@ exports.DeleteTransactionbyId = function (req, res) {
   var sql = "DELETE FROM Transaction WHERE PaymentId = " + paymentId +"";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to delete Transaction')
+       console.log('unable to delete Transaction');
+       res.send({data:"failure"});
+    } else {
+       console.log("Number of records deleted: " + result.affectedRows);
+       res.send({data:"success"});
     };
-    console.log("Number of records deleted: " + result.affectedRows);
   });
 }
 
@@ -408,9 +478,12 @@ exports.EditTransactionbyId = function (req, res) {
   var sql = "UPDATE Transaction SET UserId = " + userId +", PaymentDate = "+ paymentDate + ", PaymentTo = " + paymentTo + ", UserType = '" + userType + "', TransactionType = '" + transactionType + "', PaymentType = '" + paymentType + "', Description = '" + description + "', Remark = '" + remark + "' , CreditAmount = " + creditAmount + ", DebitAmount = " + debitAmount + ", Balance = " + balance + " WHERE PaymentId = " + paymentId +"";
   connection.query(sql, function (err, result) {
     if (err) {
-       console.log('unable to edit Transaction')
+       console.log('unable to edit Transaction');
+       res.send({data:"failure"});
+    } else {
+       console.log(result.affectedRows + " record(s) updated");
+       res.send({data:"success"});
     };
-    console.log(result.affectedRows + " record(s) updated");
   });
 }
 
@@ -420,9 +493,12 @@ exports.EditTransactionbyId = function (req, res) {
 
    connection.query("SELECT * FROM Transaction WHERE PaymentDate = " + paymentDate + ", AND UserId = " + userId + "", function (err, result) {
     if (err) {
-       console.log('unable to get Transaction')
+       console.log('unable to get Transaction');
+       res.send({data:"failure"});
+    } else {
+       console.log(result);
+       res.send({data:result});
     };
-    console.log(result);
   }); 
 }
 
