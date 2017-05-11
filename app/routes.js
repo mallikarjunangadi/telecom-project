@@ -10,7 +10,7 @@ module.exports = function(app) {
 	app.get('*', function(req, res) {
 		res.sendfile('./public/index.html');
 	});
-	
+
 	app.post('/addMasterDealer', DbService.AddMasterDealer);
 	app.post('/deleteMasterDealer', DbService.DeleteMasterDealerbyId);
 	app.post('/editMasterDealer', DbService.EditMasterDealerbyId);
@@ -49,7 +49,6 @@ module.exports = function(app) {
         var password = req.body.pwd;
 
         if(username == "3004" && password == "88848") {
-		 
            res.sendfile('./public/views/masterDealer.html');
 		} else if(username == "2005" && password == "88848") {
 		   res.sendfile('./public/views/dealer.html');	

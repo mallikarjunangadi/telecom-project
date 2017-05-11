@@ -1,0 +1,48 @@
+       
+       
+<!doctype html>
+<html>
+<head>
+<title>Check Status </title>
+<script>
+  function viewStatusRecharge(){
+    document.getElementById("viewRechargeStatus").style.display='block';
+   document.getElementById("viewRechargeStatusTabel").style.display='block';
+  }
+</script>
+</head>
+<body>
+<div>
+  <div class="container-fluid">
+<div class="well">
+     <h3>Check Recharge Status By Recharge ID</h3>
+ </div>
+ <div>
+    Check Status:<input type="text" name="checkStatus"/>
+    <button class="btn btn-primary"" type="submit" value="submit" onclick="javascript:viewStatusRecharge();"/>
+ </div>
+<div class="well" id="viewRechargeStatus" style="display:none;margin-top:2vh">
+     View Recharge Status
+ </div> 
+ 
+<table class="table table-bordered" id="viewRechargeStatusTabel" style="display:none;margin:0vh">
+    <thead>
+      <tr style="background:orange">
+        <th>Recharge ID</th>
+        <th>Date Time</th>
+        <th>Company</th>
+        <th>Mobile</th>
+        <th>Amount</th>
+         <th>BY</th>
+        <th>Status</th>
+        <th>Business Partner</th>
+        <th>Operator ID</th> 
+      </tr>
+    </thead>
+    
+  </table>
+
+</div>
+</div>
+</body>
+</html>

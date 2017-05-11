@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<div>
+<div class="container-fluid">
+<div class="well" style="margin-top:2vh;">
+      Account Ledger Report
+    </div>
+    
+<form >
+    
+     <div class="row">
+         <div  class="col-xs-3">
+       <div class="form-group">
+      <label for="sel1" >From Date:</label><input type="date" name="bday"> 
+      </div >
+      </div>
+       <div  class="col-xs-3">
+  <div class="form-group">    
+  <label for="sel1" >To Date:</label><input type="date" name="bday">
+ </div >
+ </div>
+ <div  class="col-xs-3">
+  <div class="form-group"> 
+  <select class="form-control "  id="sel1" style="width:15vh;height:5vh" >
+                           <option>Live</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                        </select>
+    </div >
+    </div>               
+ <button type="button" class="btn btn-success" >Search</button>
+  <button type="button" class="btn  btn-danger" >Export</button>
+  
+ 
+     
+ 
+                                   
+</form>
+<div style="padding:2vh">
+<table class="table table-bordered">
+    <thead>
+      <tr  style="background:orange">
+        <th>Date</th>
+        <th>Time</th>
+        <th>id</th>
+        <th>Payment From</th>
+        <th>Type</th>
+        <th>Operator</th>
+        <th>Number</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Credit</th>
+        <th>Debit</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    
+  </table>
+</div>           
+   </div>         
+</div>
+</body>
+</html>

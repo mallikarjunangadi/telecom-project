@@ -21,6 +21,21 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/login', {
 			templateUrl: 'views/login.html'	
 		})
+
+		.when('/mdealer', {
+			templateUrl: 'views/masterDealer.html',
+			controller: 'mDealerMainCtrl'	
+		})
+
+		.when('/dealer', {
+			templateUrl: 'views/dealer.html',
+			controller: 'dealerMainCtrl'	
+		})
+
+		.when('/retailer', {
+			templateUrl: 'views/retailer.html',
+			controller: 'retailerMainCtrl'		
+		})
 		
 	$locationProvider.html5Mode(true);
 

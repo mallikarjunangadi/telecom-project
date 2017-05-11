@@ -1,1 +1,1 @@
-angular.module('sampleApp', ['ngRoute', 'appRoutes', 'retailerCtrl', 'dealerCtrl', 'NerdService', 'masterDealerCtrl', 'DBservice']);
+angular.module('sampleApp', ['ngRoute', 'appRoutes', 'retailerCtrl', 'dealerCtrl', 'NerdService', 'masterDealerCtrl','mainCtrl', 'globalCtrl', 'DBservice']);

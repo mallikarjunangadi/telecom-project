@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="well well-sm"> <b style="font-size:20px;">Dealer Registration Form</b>
-    </div>     
+<div class="well well-sm"><b style="font-size:20px;">Retailer Registration Form</b>
+    </div> 
     <p style="font-size:18px;">Personal Information</p>
     <hr>
     
@@ -17,9 +12,9 @@
   
   <form class="form-horizontal" >
     <div class="form-group">
-      <label class="control-label col-sm-2" for="Distributor Name"><sup>*</sup>Distributor Name:</label>
+      <label class="control-label col-sm-2" for="Agent Name"><sup>*</sup>Agent Name:</label>
       <div class="col-sm-3">
-        <input type="Distributor Name" class="form-control" id="Distributor Name" placeholder="Enter Distributor Name" name="Distributor Name">
+        <input type="Agent Name" class="form-control" id="Agent Name"  name="Agent Name">
       </div>
     </div>
     <div class="form-group">
@@ -30,7 +25,7 @@
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="State"><sup> *</sup>State:</label>
-      <div  class="col-sm-3"> 
+      <div class="col-sm-3"> 
     <select class="selectpicker form-control">
             <option>select state</option>
             <option>karnataka</option>
@@ -44,10 +39,11 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="Retailer Type">Retailer Type:</label>
+      <label class="control-label col-sm-2" for="Agent Business Name">Agent Business Name:</label>
       <div class="col-sm-3"> 
     <select class="selectpicker form-control">
-            <option>select Retailer Type</option>
+            <option></option>
+            <option>select Agent Business Name</option>
             <option>Telecom</option>
     </select>
       </div>
@@ -59,6 +55,16 @@
       </div>
     </div>
     <div class="form-group">
+      <label class="control-label col-sm-2" for="Select Parent"><sup>*</sup>Select Parent:</label>
+      <div  class="col-sm-3"> 
+    <select class="selectpicker form-control">
+            <option></option>
+            <option>----select----</option>
+            <option>Adithya Enterprises</option>
+    </select>
+      </div>
+    </div>
+    <div class="form-group">
       <label class="control-label col-sm-2" for="Pin Code"><sup> *</sup>Pin Code:</label>
       <div class="col-sm-3">
         <input type="Pin Code" class="form-control" id="Pin Code"  name="Pin Code">
@@ -66,8 +72,8 @@
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="City/District">City/District:</label>
-      <div class="col-sm-3"> 
-    <select class="selectpicker form-control">
+      <div class="col-sm-3" > 
+    <select class="selectpicker form-control" >
             <option>select City</option>
             
     </select>
@@ -91,16 +97,16 @@
         <input type="Contact Person" class="form-control" id="Contact Person"  name="Contact Person">
       </div>
     </div>
-<p style="font-size:20px"><b>Scheme Details</b></p>
+<p style="font-size:20px">Scheme Details</p>
     <hr>
     <div class="form-group">
       <label class="control-label col-sm-2" for="Scheme">Scheme:</label>
       <div class="col-sm-3"> 
-    <select class="selectpicker form-control">
+    <select class="selectpicker form-control" >
            <option></option>      
-            <option>select Scheme</option>
-            <option>Dealer Scheme</option>
-            <option>Supreme Dealer Scheme</option>
+            <option>Retailer Scheme</option>
+            <option>Personal retailer</option>
+            
     </select>
       </div>
     </div>
